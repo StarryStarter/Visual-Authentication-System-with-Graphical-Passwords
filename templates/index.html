@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            background: #A1FFCE;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        h1 {
+            color: black;
+        }
+
+        a {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+
+
+
+        body{
+
+            background: #ef32d9;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        .error{
+            margin-top: -320px;
+            position: absolute;
+            
+           
+
+
+
+
+        }
+    </style>
+</head>
+<body>
+    {% if error %}
+            <p class="error" style="color: red; ">{{ error }}</p>
+        {% endif %}
+
+    <div class="container">
+        <h1>Login To Continue</h1>
+
+        <a href="/login">Login</a>
+
+        <h5>Don't Have An Account ? </h5>
+        <a href="/register">Register</a>
+    </div>
+
+</body>
+</html>

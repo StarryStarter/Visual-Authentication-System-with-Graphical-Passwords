@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #text {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #myForm {
+            background: #eacda3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ks {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .logs label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        .logs input {
+            width: 100%;
+            padding: 8px;
+            border: 1.2px solid #0a0a0a;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        #submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #submits{
+            
+  width: 200px; /* Set your desired width here */
+  display: inline-block; /* Ensures that the width property works as expected */
+  text-align: center; /* Optional: Center the content within the anchor */
+  padding: 10px; /* Optional: Add padding for better visual appearance */
+  background-color: #3498db; /* Optional: Add background color for better visibility */
+  color: #fff; /* Optional: Set text color */
+  text-decoration: none; /* Optional: Remove underline */
+  border-radius: 4px;
+}
+
+        
+
+        #submit:hover {
+            background-color: #45a049;
+        }
+        body{
+
+            background: #EECDA3;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #EF629F, #EECDA3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="ks">
+        <h1 id="text">Login Page</h1>
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form id="myForm" action="http://127.0.0.1:5000/user_images/" method="post" onsubmit="redirectToUserImages(event)">
+            <div class="logs">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
+            <button id="submit" type="submit">Next</button>
+            <br><br>
+            <a id="submits"  href="/register">Register</a>
+        </form>
+    </div>
+
+    <script>
+        function redirectToUserImages(event) {
+            event.preventDefault();  // Prevents the default form submission
+            var email = document.getElementById("email").value;
+            window.location.href = "http://127.0.0.1:5000/user_images/" + encodeURIComponent(email);
+        }
+    </script>
+
+</body>
+</html>

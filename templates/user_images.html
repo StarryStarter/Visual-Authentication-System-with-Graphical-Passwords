@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>User Images</title>
+
+    <script>
+        
+        function shuffleImages() {
+            var container = document.getElementById('imageContainer');
+            for (var i = container.children.length; i >= 0; i--) {
+                container.appendChild(container.children[Math.random() * i | 0]);
+            }
+        }
+
+        
+        window.addEventListener('load', shuffleImages);
+    </script>
+
+    <style>
+        .hey{
+
+            background: #11998e;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+       
+
+
+        #image1,#image2,#image3,#image4,#image5,#image6,#image7,#image8,#image9{
+            background-color: white;
+
+            border: 1px solid rgb(0, 0, 0);
+            
+           width: 128px;
+           aspect-ratio: 3/2;
+           object-fit: contain;
+           mix-blend-mode: color-burn;
+           height:100px;
+           
+          
+           max-block-size: 20%;
+           display: inline-block;
+           margin: auto;
+           padding: auto;
+           margin: 2px;
+
+            
+           
+            
+            
+
+
+        }
+
+        .drop-area{
+            background-color: white;
+
+            
+            height: 100px;
+            width: 128px;
+            aspect-ratio: 3/2;
+            object-fit: contain;
+            
+            display: inline-block;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            margin-left: 0.5px;
+            
+        }
+
+        #preview1,#preview2,#preview3,#preview4,#preview5,#preview6,#preview7,#preview8,#preview9{
+           
+            border: 1px solid black;
+            height: 100px;
+            width: 128px;
+            aspect-ratio: 3/2;
+            object-fit: contain;
+            display: inline-block;
+            margin-top: -47.5px;
+            margin-left: 0.5px;
+            
+        }
+        #imageContainer img {
+            width: 128px;
+           height:100px;
+           
+           
+            max-height: 200px; 
+        }
+
+        .horizontal-line {
+    border-top: 1.5px solid black;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    }
+    .form-container {
+
+        background: #00C9FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin-left: 400px;    
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+
+    </style>
+    
+</head>
+<body>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    
+    <h2>Your Images</h2>
+    <div id="imageContainer">
+
+        <div id="image1">
+            
+            <img     src="data:image/jpeg;base64,{{ image_data_base64 }}" alt="Image 1">
+        </div>
+        <div id="image2">
+           
+            <img  src="data:image/jpeg;base64,{{ image_data_base641 }}" alt="Image 9">
+        </div>
+
+        
+        <div  id="image3">
+            
+            <img  src="data:image/jpeg;base64,{{ image_data_base642 }}" alt="Image 2">
+        </div>
+
+        <!-- Div 3 -->
+        <div  id="image4">
+            
+            <img   src="data:image/jpeg;base64,{{ image_data_base643 }}" alt="Image 3">
+        </div>
+
+        <!-- Div 4 -->
+        <div  id="image5">
+            
+            <img   src="data:image/jpeg;base64,{{ image_data_base644 }}" alt="Image 4">
+        </div>
+
+        <!-- Div 5 -->
+        <div  id="image6" >
+            
+            <img   src="data:image/jpeg;base64,{{ image_data_base645 }}" alt="Image 5">
+        </div>
+
+        <!-- Div 6 -->
+        <div  id="image7">
+            
+            <img src="data:image/jpeg;base64,{{ image_data_base646 }}" alt="Image 6">
+        </div>
+
+        <!-- Div 7 -->
+        <div  id="image8" >
+            
+            <img   src="data:image/jpeg;base64,{{ image_data_base647 }}" alt="Image 7">
+        </div>
+
+        <!-- Div 8 -->
+        <div  id="image9">
+            
+            <img    src="data:image/jpeg;base64,{{ image_data_base648 }}" alt="Image 8">
+        </div>
+    </div>
+    <!-- Div 9 -->
+   
+
+    <!-- Div 10 -->
+    
+<div class="hey">
+    <div class="horizontal-line"></div>
+    
+    <h3>* Select The Correct Order Of Images By Drag and Drop </h3>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('login') }}">
+            
+        <div>
+               
+
+              
+            <div class="drop-area" id="drop-area-1" ondrop="drop(event, '1')" ondragover="allowDrop(event)">
+                
+                <label style="text-align: center;" for="file">1</label>
+                <input type="file" name="file" id="fileInput1" style="display:none;" onchange="handleFile('1')" required>
+                <br>
+                <img id="preview1" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+            
+
+            <!-- Drop area 2 -->
+            <div class="drop-area" id="drop-area-2" ondrop="drop(event, '2')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file1">2</label>
+                <input type="file" name="file1" id="fileInput2" style="display:none;" onchange="handleFile('2')" required>
+                <br>
+                <img id="preview2" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 3 -->
+            <div class="drop-area" id="drop-area-3" ondrop="drop(event, '3')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file2">3</label>
+                <input type="file" name="file2" id="fileInput3" style="display:none;" onchange="handleFile('3')" required>
+                <br>
+                <img id="preview3" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 4 -->
+            <div class="drop-area" id="drop-area-4" ondrop="drop(event, '4')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file3">4</label>
+                <input type="file" name="file3" id="fileInput4" style="display:none;" onchange="handleFile('4')" required>
+                <br>
+                <img id="preview4" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 5 -->
+            <div class="drop-area" id="drop-area-5" ondrop="drop(event, '5')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file4">5</label>
+                <input type="file" name="file4" id="fileInput5" style="display:none;" onchange="handleFile('5')" required>
+                <br>
+                <img id="preview5" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 6 -->
+            <div class="drop-area" id="drop-area-6" ondrop="drop(event, '6')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file5">6</label>
+                <input type="file" name="file5" id="fileInput6" style="display:none;" onchange="handleFile('6')" required>
+                <br>
+                <img id="preview6" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 7 -->
+            <div class="drop-area" id="drop-area-7" ondrop="drop(event, '7')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file6">7</label>
+                <input type="file" name="file6" id="fileInput7" style="display:none;" onchange="handleFile('7')" required>
+                <br>
+                <img id="preview7" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 8 -->
+            <div class="drop-area" id="drop-area-8" ondrop="drop(event, '8')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file7">8</label>
+                <input type="file" name="file7" id="fileInput8" style="display:none;" onchange="handleFile('8')" required>
+                <br>
+                <img id="preview8" style="max-width: 100%; max-height: 300px;" draggable="true" ondragstart="drag(event)">
+            </div>
+
+            <!-- Drop area 9 -->
+            <div class="drop-area" id="drop-area-9" ondrop="drop(event, '9')" ondragover="allowDrop(event)">
+                <label style="text-align: center;" for="file8">9</label>
+                <input type="file" name="file8" id="fileInput9" style="display:none;" onchange="handleFile('9')" required>
+                <br>
+                <img id="preview9" style="max-width: 100%; max-height: 100%;" draggable="true" ondragstart="drag(event)">
+            </div>
+            <br>
+            <div class="form-container">
+                <form action="your_action_url_here" method="post">
+                    <label for="email"><h5>Please Re-enter Your Email</h5></label>
+                    <input type="email" name="email" id="email" required placeholder="Enter your email address">
+            
+                    <br><br>
+            
+                    <input type="submit" name="submit" value="login">
+                </form>
+            </div>
+
+
+
+
+      
+        </div>
+      </div>
+    </form>
+    <script>
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event, area) {
+event.preventDefault();
+var file = event.dataTransfer.files[0];
+
+var destinationArea = area;
+
+
+var destinationPreview = document.getElementById(`preview${destinationArea}`);
+var destinationFileInput = document.getElementById(`fileInput${destinationArea}`);
+
+
+previewFile(file, destinationArea);
+destinationFileInput.files = event.dataTransfer.files;
+}
+
+
+
+
+
+function handleFile(area) {
+    var fileInput = document.getElementById(`fileInput${area}`);
+    var file = fileInput.files[0];
+    previewFile(file, area);
+}
+
+function previewFile(file, area) {
+    var reader = new FileReader();
+    reader.onloadend = function () {
+        var preview = document.getElementById(`preview${area}`);
+        preview.src = reader.result;
+    };
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
+function drag(event) {
+    var draggedArea = event.target.id.split('preview')[1];
+    event.dataTransfer.setData("text", draggedArea);
+}
+
+// Open file input on click for all areas
+document.querySelectorAll('.drop-area').forEach(function (area) {
+    area.addEventListener('click', function (event) {
+        var areaId = area.id.split('-')[2];
+        document.getElementById(`fileInput${areaId}`).click();
+    });
+});
+</script>
+</body>
+</html>
